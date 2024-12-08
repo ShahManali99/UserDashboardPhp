@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const itemsPerPage = 4;
     let currentPage = 1;
 
+    // Logic to handle pagination when user does successive page changes.
     let pageChangeTimeout;
     function changePage(newPage) {
         clearTimeout(pageChangeTimeout);
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loadingSpinner.style.display = show ? "block" : "none";
     };
 
-    // Fetch users from PHP script
+    // Fetch users from PHP script.
     const fetchData = async () => {
         toggleSpinner(true);
         try {
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+    // Handles pagination dynamically.
     function renderPagination(totalItems) {
         const totalPages = Math.ceil(totalItems / itemsPerPage);
         const paginationElement = document.getElementById('pagination');
@@ -67,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Creates a modal view for showing user details.
     window.showUserDetails = function showUserDetails(userId) {
         const user = users.find(u => u.id === userId);
         const modalBody = `
@@ -102,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Render users in the table
+    // Render users in the table.
     function renderTable(usersToRender) {
         const start = (currentPage - 1) * itemsPerPage;
         const paginatedUsers = usersToRender.slice(start, start + itemsPerPage);
