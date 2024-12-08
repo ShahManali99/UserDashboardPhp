@@ -10,3 +10,8 @@
 .sorted-desc::after {
     content: " ↓";
 }
+.tooltip {
+    max-width: 150px; /* Set a maximum width for the tooltip */
+    font-size: 0.6rem; /* Adjust font size as needed */
+    padding: 5px; /* Add some padding */
+}

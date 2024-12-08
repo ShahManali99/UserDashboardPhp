@@ -1,12 +1,14 @@
 <?php
-$api_url = 'https://jsonplaceholder.typicode.com/users';
+$api_url = "https://jsonplaceholder.typicode.com/users";
 
-$response = file_get_contents($api_url);
-
-if ($response === false) {
-    http_response_code(500);
-    echo json_encode(['error' => 'Failed to fetch data from API']);
-} else {
+try {
+    $response = file_get_contents($api_url);
+    if ($response === FALSE) {
+        throw new Exception("Unable to fetch data from the API.");
+    }
     header('Content-Type: application/json');
     echo $response;
+} catch (Exception $e) {
+    echo json_encode(["error" => $e->getMessage()]);
 }
+?>
