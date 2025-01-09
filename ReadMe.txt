@@ -1,4 +1,4 @@
-Assuming the user has a basic PHP and web server environment, from career_launch directory, run the following commands in terminal:
+Assuming the user has a basic PHP and web server environment, from root directory, run the following commands in terminal:
 
 ```
 brew services start php
